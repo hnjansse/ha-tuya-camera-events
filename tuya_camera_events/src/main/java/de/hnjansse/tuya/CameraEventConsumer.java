@@ -99,12 +99,19 @@ public class CameraEventConsumer {
             JSONObject root =
                     JSON.parseObject(decrypted);
 
-            String bizCode =
-                    root.getString("bizCode");
+String bizCode =
+        root.getString("bizCode");
 
-            if (!"devicePropertyMessage".equals(bizCode)) {
-                return;
-            }
+System.out.println(
+        "TUYA MESSAGE RECEIVED - bizCode=" + bizCode
+);
+
+if (!"devicePropertyMessage".equals(bizCode)) {
+    System.out.println(
+            "TUYA MESSAGE IGNORED - unsupported bizCode"
+    );
+    return;
+}
 
             JSONObject bizData =
                     root.getJSONObject("bizData");
@@ -133,6 +140,15 @@ public class CameraEventConsumer {
 
                 Integer dpId =
                         property.getInteger("dpId");
+
+System.out.println(
+        "TUYA PROPERTY - device="
+                + deviceId
+                + " dpId="
+                + dpId
+                + " code="
+                + code
+);
 
                 if (!"initiative_message".equals(code)
                         || dpId == null
