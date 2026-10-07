@@ -1,6 +1,6 @@
 name: "Tuya Camera Events"
 description: "Receives Tuya camera person detection events and forwards them to Home Assistant"
-version: "0.1.0"
+version: "0.1.1"
 slug: "tuya_camera_events"
 
 init: false
