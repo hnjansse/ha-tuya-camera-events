@@ -1,0 +1,27 @@
+name: "Tuya Camera Events"
+description: "Receives Tuya camera person detection events and forwards them to Home Assistant"
+version: "0.1.0"
+slug: "tuya_camera_events"
+
+init: false
+startup: services
+boot: auto
+
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+
+homeassistant_api: true
+
+options:
+  access_id: ""
+  access_secret: ""
+  environment: "test"
+
+schema:
+  access_id: str
+  access_secret: password
+  environment: list(test|prod)
